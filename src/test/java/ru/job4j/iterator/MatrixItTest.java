@@ -95,4 +95,15 @@ class MatrixItTest {
         MatrixIt it = new MatrixIt(in);
         assertThat(it.hasNext()).isFalse();
     }
+
+    @Test
+    void whenTheLastEmpty() {
+        int[][] in = {
+                {1}, {2}, {}
+        };
+        MatrixIt it = new MatrixIt(in);
+        assertThat(it.next()).isEqualTo(1);
+        assertThat(it.next()).isEqualTo(2);
+        assertThat(it.hasNext()).isFalse();
+    }
 }
